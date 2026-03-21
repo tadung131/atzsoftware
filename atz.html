@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATZ Software Co,. Ltd | Automation Solution </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        
+        /* Hiệu ứng cho Card */
+        .service-card { 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .service-card:hover { 
+            transform: translateY(-10px); 
+            shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        /* KHẮC PHỤC LỖI ẢNH: Đảm bảo ảnh luôn lấp đầy khung mà không bị giãn */
+        .img-container {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Tỷ lệ khung hình cố định */
+            overflow: hidden;
+            background-color: #f3f4f6;
+        }
+        .service-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Quan trọng: Lấp đầy và không làm biến dạng */
+            object-position: center;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600 tracking-tight">ATZ <span class="text-gray-800">Software Co,. Ltd</span></div>
+            
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#" data-key="nav-home" class="hover:text-blue-600 transition">Trang chủ</a>
+                    <a href="#services" data-key="nav-services" class="hover:text-blue-600 transition">Giải pháp</a>
+                    <a href="#about" data-key="nav-about" class="hover:text-blue-600 transition">Về chúng tôi</a>
+                </div>
+
+                <div class="flex border rounded-lg overflow-hidden bg-gray-100 p-1 space-x-1 shadow-sm">
+                    <button onclick="changeLanguage('vi')" id="btn-vi" class="px-3 py-1 text-xs font-bold rounded bg-blue-600 text-white transition">VN</button>
+                    <button onclick="changeLanguage('en')" id="btn-en" class="px-3 py-1 text-xs font-bold rounded hover:bg-gray-200 transition">EN</button>
+                    <button onclick="changeLanguage('ko')" id="btn-ko" class="px-3 py-1 text-xs font-bold rounded hover:bg-gray-200 transition">KR</button>
+                </div>
+
+                <a href="#contact" data-key="nav-contact" class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition font-semibold">Liên hệ</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-gradient text-white py-24 px-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight" data-key="hero-title">A to Z Automation Solution</h1>
+            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed" data-key="hero-desc">
+                Cung cấp hệ sinh thái giải pháp phần mềm tự động hóa toàn diện: SECS/GEM, HSMS, PLC, Vision & Robot.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-full font-bold shadow-lg transition duration-300" data-key="btn-explore">Khám phá ngay</button>
+                <button class="border border-white/50 hover:bg-white hover:text-gray-900 px-10 py-4 rounded-full font-bold transition duration-300" data-key="btn-consult">Tư vấn kỹ thuật</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-800" data-key="services-title">Dịch Vụ Cốt Lõi</h2>
+            <div class="w-24 h-1 bg-blue-600 mx-auto mb-16 rounded-full"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+                
+                <div class="bg-gray-50 rounded-2xl shadow-sm border border-gray-100 service-card overflow-hidden">
+                    <div class="img-container border-b-4 border-blue-500">
+                        <img src="Secsgem.svg" alt="SECS/GEM Solution" class="service-img">
+                    </div>
+                    <div class="p-10">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-lg text-blue-600 mr-4"><i class="fas fa-network-wired text-2xl"></i></div>
+                            <h3 class="text-2xl font-bold text-gray-800">SECS/GEM & HSMS</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg leading-relaxed" data-key="service-1-desc">Chuẩn hóa giao thức truyền thông giữa thiết bị và hệ thống quản lý (MES/EAP) trong sản xuất bán dẫn.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl shadow-sm border border-gray-100 service-card overflow-hidden">
+                    <div class="img-container border-b-4 border-green-500">
+                        <img src="plc_robot.jpg.png" alt="PLC Robot" class="service-img">
+                    </div>
+                    <div class="p-10">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-lg text-green-600 mr-4"><i class="fas fa-robot text-2xl"></i></div>
+                            <h3 class="text-2xl font-bold text-gray-800">PLC & Robot Integration</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg leading-relaxed" data-key="service-2-desc">Lập trình điều khiển hệ thống PLC đa dạng hãng và tích hợp cánh tay Robot vào dây chuyền sản xuất.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl shadow-sm border border-gray-100 service-card overflow-hidden">
+                    <div class="img-container border-b-4 border-purple-500">
+                        <img src="Vision.png" alt="Machine Vision" class="service-img">
+                    </div>
+                    <div class="p-10">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-lg text-purple-600 mr-4"><i class="fas fa-eye text-2xl"></i></div>
+                            <h3 class="text-2xl font-bold text-gray-800">Machine Vision</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg leading-relaxed" data-key="service-3-desc">Hệ thống kiểm tra lỗi ngoại quan, nhận diện sản phẩm bằng AI và Camera công nghiệp độ chính xác cao.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl shadow-sm border border-gray-100 service-card overflow-hidden">
+                    <div class="img-container border-b-4 border-orange-500">
+                        <img src="Programing.png" alt="Software Programming" class="service-img">
+                    </div>
+                    <div class="p-10">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-orange-100 p-3 rounded-lg text-orange-600 mr-4"><i class="fas fa-code text-2xl"></i></div>
+                            <h3 class="text-2xl font-bold text-gray-800" data-key="service-4-title">Software Programming</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg leading-relaxed" data-key="service-4-desc">Phát triển phần mềm tùy chỉnh (C#, C++, Python) phục vụ giám sát sản xuất, thu thập dữ liệu và điều khiển hệ thống công nghiệp.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-900 text-white py-16 px-6">
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h3 class="text-3xl font-bold mb-6 tracking-tight text-blue-400">ATZ Software Co,. Ltd </h3>
+                <p class="text-gray-400 text-lg leading-relaxed max-w-md" data-key="footer-desc">Đơn vị tiên phong trong chuyển đổi số và tự động hóa công nghiệp tại Việt Nam.</p>
+            </div>
+            <div class="space-y-4 md:text-right">
+                <p class="text-xl font-medium"><i class="fas fa-envelope mr-3 text-blue-500"></i> contact@atzsoftware.net</p>
+                <p class="text-xl font-medium"><i class="fas fa-phone mr-3 text-blue-500"></i> +84 123 456 789</p>
+            </div>
+        </div>
+        <div class="container mx-auto border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+            &copy; 2026 ATZ Software Solution. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const langData = {
+            'vi': {
+                'nav-home': 'Trang chủ', 'nav-services': 'Giải pháp', 'nav-about': 'Về chúng tôi', 'nav-contact': 'Liên hệ',
+                'hero-title': 'A to Z Automation Solution',
+                'hero-desc': 'Cung cấp hệ sinh thái giải pháp phần mềm tự động hóa toàn diện: SECS/GEM, HSMS, PLC, Vision & Robot.',
+                'btn-explore': 'Khám phá ngay', 'btn-consult': 'Tư vấn kỹ thuật',
+                'services-title': 'Dịch Vụ Cốt Lõi',
+                'service-1-desc': 'Chuẩn hóa giao thức truyền thông giữa thiết bị và hệ thống quản lý (MES/EAP) trong sản xuất bán dẫn.',
+                'service-2-desc': 'Lập trình điều khiển hệ thống PLC đa dạng hãng và tích hợp cánh tay Robot vào dây chuyền sản xuất.',
+                'service-3-desc': 'Hệ thống kiểm tra lỗi ngoại quan, nhận diện sản phẩm bằng AI và Camera công nghiệp độ chính xác cao.',
+                'service-4-title': 'Software Programming',
+                'service-4-desc': 'Phát triển phần mềm tùy chỉnh (C#, C++, Python) phục vụ giám sát sản xuất, thu thập dữ liệu và điều khiển hệ thống công nghiệp.',
+                'footer-desc': 'Đơn vị tiên phong trong chuyển đổi số và tự động hóa công nghiệp tại Việt Nam.'
+            },
+            'en': {
+                'nav-home': 'Home', 'nav-services': 'Solutions', 'nav-about': 'About Us', 'nav-contact': 'Contact',
+                'hero-title': 'A to Z Automation Solution',
+                'hero-desc': 'Providing a comprehensive automation software ecosystem: SECS/GEM, HSMS, PLC, Vision & Robot.',
+                'btn-explore': 'Explore Now', 'btn-consult': 'Technical Consulting',
+                'services-title': 'Core Services',
+                'service-1-desc': 'Standardizing communication protocols between equipment and management systems (MES/EAP) in semiconductor manufacturing.',
+                'service-2-desc': 'PLC programming for various brands and integrating robotic arms into production lines.',
+                'service-3-desc': 'Visual inspection systems, AI-based product recognition, and high-precision industrial cameras.',
+                'service-4-title': 'Software Programming',
+                'service-4-desc': 'Developing custom software (C#, C++, Python) for production monitoring, data acquisition, and industrial control systems.',
+                'footer-desc': 'A pioneer in digital transformation and industrial automation in Vietnam.'
+            },
+            'ko': {
+                'nav-home': '홈페이지', 'nav-services': '솔루션', 'nav-about': '회사 소개', 'nav-contact': '문의하기',
+                'hero-title': 'A to Z 자동화 솔루션',
+                'hero-desc': '포괄적인 자동화 소프트웨어 에코시스템 제공: SECS/GEM, HSMS, PLC, Vision 및 로봇.',
+                'btn-explore': '지금 탐색', 'btn-consult': '기술 컨설팅',
+                'services-title': '핵심 서비스',
+                'service-1-desc': '반도체 제조 분야의 설비와 관리 시스템(MES/EAP) 간 통신 프로토콜 표준화.',
+                'service-2-desc': '다양한 브랜드의 PLC 제어 프로그래밍 및 생산 라인 로봇 팔 통합.',
+                'service-3-desc': 'AI 기반 제품 인식 및 고정밀 산업용 카메라를 이용한 외관 검사 시스템.',
+                'service-4-title': 'Software Programming',
+                'service-4-desc': '생산 모니터링, 데이터 수집 및 산업 제어 시스템을 위한 맞춤형 소프트웨어(C#, C++, Python) 개발.',
+                'footer-desc': '베트남 디지털 전환 및 산업 자동화 분야의 선두주자.'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (langData[lang][key]) { el.innerText = langData[lang][key]; }
+            });
+            ['vi', 'en', 'ko'].forEach(l => {
+                const btn = document.getElementById(`btn-${l}`);
+                if (l === lang) {
+                    btn.classList.add('bg-blue-600', 'text-white');
+                    btn.classList.remove('hover:bg-gray-200');
+                } else {
+                    btn.classList.remove('bg-blue-600', 'text-white');
+                    btn.classList.add('hover:bg-gray-200');
+                }
+            });
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'vi';
+            changeLanguage(savedLang);
+        };
+    </script>
+</body>
+</html>
