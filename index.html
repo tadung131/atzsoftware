@@ -15,22 +15,51 @@
         }
         .service-card:hover { 
             transform: translateY(-10px); 
-            shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            shadow: 0 25px 30px -5px rgb(0 0 0 / 0.1);
         }
 
-        /* KHẮC PHỤC LỖI ẢNH: Đảm bảo ảnh luôn lấp đầy khung mà không bị giãn */
+        /* Đảm bảo ảnh luôn lấp đầy khung mà không bị giãn */
         .img-container {
             width: 100%;
-            aspect-ratio: 16 / 9; /* Tỷ lệ khung hình cố định */
+            aspect-ratio: 16 / 9;
             overflow: hidden;
             background-color: #f3f4f6;
         }
         .service-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Quan trọng: Lấp đầy và không làm biến dạng */
+            object-fit: cover;
             object-position: center;
             display: block;
+        }
+
+        /* --- MỚI: HIỆU ỨNG GẠCH CHÂN MENU MENU --- */
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            padding-bottom: 4px; /* Khoảng cách từ chữ xuống đường gạch */
+            color: #1f2937; /* Màu xám đậm (text-gray-800) */
+            transition: color 0.3s ease;
+        }
+        
+        /* Đường gạch chân ẩn đi ban đầu */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #2563eb; /* Màu xanh dương (bg-blue-600) */
+            transition: width 0.3s ease; /* Tốc độ mượt mà */
+        }
+
+        /* Khi di chuột vào: chữ đổi màu và đường gạch dài ra */
+        .nav-link:hover {
+            color: #2563eb; /* text-blue-600 */
+        }
+        .nav-link:hover::after {
+            width: 100%;
         }
     </style>
 </head>
@@ -42,9 +71,9 @@
             
             <div class="flex items-center space-x-6">
                 <div class="hidden md:flex space-x-8 font-medium">
-                    <a href="#" data-key="nav-home" class="hover:text-blue-600 transition">Trang chủ</a>
-                    <a href="#services" data-key="nav-services" class="hover:text-blue-600 transition">Giải pháp</a>
-                    <a href="#about" data-key="nav-about" class="hover:text-blue-600 transition">Về chúng tôi</a>
+                    <a href="#" data-key="nav-home" class="nav-link">Trang chủ</a>
+                    <a href="#services" data-key="nav-services" class="nav-link">Giải pháp</a>
+                    <a href="#about" data-key="nav-about" class="nav-link">Về chúng tôi</a>
                 </div>
 
                 <div class="flex border rounded-lg overflow-hidden bg-gray-100 p-1 space-x-1 shadow-sm">
@@ -60,7 +89,7 @@
 
     <section class="hero-gradient text-white py-24 px-6">
         <div class="container mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight" data-key="hero-title">A to Z Automation Solution</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight" data-key="hero-title">A to Z Automation Solution</h1>
             <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed" data-key="hero-desc">
                 Cung cấp hệ sinh thái giải pháp phần mềm tự động hóa toàn diện: SECS/GEM, HSMS, PLC, Vision & Robot.
             </p>
@@ -73,7 +102,7 @@
 
     <section id="services" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-4 text-gray-800" data-key="services-title">Dịch Vụ Cốt Lõi</h2>
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-800" data-key="services-title">Dịch Vụ Cốt Lõi</h2>
             <div class="w-24 h-1 bg-blue-600 mx-auto mb-16 rounded-full"></div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
@@ -154,7 +183,7 @@
         const langData = {
             'vi': {
                 'nav-home': 'Trang chủ', 'nav-services': 'Giải pháp', 'nav-about': 'Về chúng tôi', 'nav-contact': 'Liên hệ',
-                'hero-title': 'A to Z Automation Solution',
+                'hero-title': 'A to Z Automation Software Solution',
                 'hero-desc': 'Cung cấp hệ sinh thái giải pháp phần mềm tự động hóa toàn diện: SECS/GEM, HSMS, PLC, Vision & Robot.',
                 'btn-explore': 'Khám phá ngay', 'btn-consult': 'Tư vấn kỹ thuật',
                 'services-title': 'Dịch Vụ Cốt Lõi',
@@ -167,7 +196,7 @@
             },
             'en': {
                 'nav-home': 'Home', 'nav-services': 'Solutions', 'nav-about': 'About Us', 'nav-contact': 'Contact',
-                'hero-title': 'A to Z Automation Solution',
+                'hero-title': 'A to Z Automation Software Solution',
                 'hero-desc': 'Providing a comprehensive automation software ecosystem: SECS/GEM, HSMS, PLC, Vision & Robot.',
                 'btn-explore': 'Explore Now', 'btn-consult': 'Technical Consulting',
                 'services-title': 'Core Services',
@@ -176,7 +205,7 @@
                 'service-3-desc': 'Visual inspection systems, AI-based product recognition, and high-precision industrial cameras.',
                 'service-4-title': 'Software Programming',
                 'service-4-desc': 'Developing custom software (C#, C++, Python) for production monitoring, data acquisition, and industrial control systems.',
-                'footer-desc': 'A pioneer in digital transformation and industrial automation in Vietnam.'
+                'footer-desc': 'A pioneer in digital transformation and industrial automation in Vietnam/ Korea / India.'
             },
             'ko': {
                 'nav-home': '홈페이지', 'nav-services': '솔루션', 'nav-about': '회사 소개', 'nav-contact': '문의하기',
